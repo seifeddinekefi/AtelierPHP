@@ -1,39 +1,9 @@
 <?php
-if (isset($_POST["submit"])) {
-    $nom = $_POST["nom"];
-    $prenom = $_POST["prenom"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-}
+
 $nom = $_POST["nom"];
 $prenom = $_POST["prenom"];
 $email = $_POST["email"];
 $message = $_POST["message"];
-
-// Validation (example - expand as needed)
-$errors = [];
-if (empty($nom)) {
-    $errors[] = "Le nom est requis.";
-}
-if (empty($prenom)) {
-    $errors[] = "Le prénom est requis.";
-}
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "L'email n'est pas valide.";
-}
-if (empty($message)) {
-    $errors[] = "Le message est requis.";
-}
-
-if (!empty($errors)) {
-    // Display errors and stop processing
-    echo "<div class='error'>";
-    foreach ($errors as $error) {
-        echo $error . "<br>";
-    }
-    echo "</div>";
-    exit; // Stop further execution
-}
 
 ?>
 
@@ -78,7 +48,7 @@ if (!empty($errors)) {
 </head>
 <body>
 
-<?php if (empty($errors)) : ?>  <table>
+<table>
         <tr>
             <th>Nom</th>
             <td><?php echo $nom; ?></td>
@@ -96,7 +66,6 @@ if (!empty($errors)) {
             <td><?php echo $message; ?></td>
         </tr>
     </table>
-<?php endif; ?>
 
 </body>
 </html>
